@@ -5,7 +5,7 @@ import MapContainer from './MapContainer';
 import InfoContainer from './InfoContainer';
 import './App.css';
 
-import {US_STATES_OPTIONS, titleCaseToAbbrev} from './utils';
+import {API_KEY, US_STATES_OPTIONS, titleCaseToAbbrev} from './utils';
 
 function averagedCenter(breweries) {
   let filtered = breweries.filter(b => b.latitude && b.longitude);
@@ -91,7 +91,7 @@ class App extends React.Component {
     let promises = breweries.filter(b => b.street && (!(b.latitude) || !(b.longitude))).map(b => {
       return axios.get("https://maps.googleapis.com/maps/api/geocode/json", {
         params: {
-          key:      'AIzaSyB2k-ujf_xCCwW6swXlaE6o0yzYO-WUQsw',
+          key:      API_KEY,
           address:  `${b.street} ${b.city}, ${titleCaseToAbbrev(b.state)}`
         }
       }).then(res => {
