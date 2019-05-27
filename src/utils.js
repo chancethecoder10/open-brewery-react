@@ -1,7 +1,6 @@
 import React from 'react';
 
 const API_KEY = "AIzaSyC5vJx14Md5BNN76VSKIJewPXm-aWD9DzA";      // prod (github pages)
-//const API_KEY = "AIzaSyB2k-ujf_xCCwW6swXlaE6o0yzYO-WUQsw"     // dev (my local machine)
 
 const STATE_ABR = {
   "alabama": "AL",

@@ -232,6 +232,7 @@ class App extends React.Component {
             <MapContainer
               breweries={breweries}
               center={mapCenter}
+              onClick={(i) => this.handleClickListItem(i)}
             />
           </div>
         </div>
