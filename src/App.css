@@ -22,12 +22,26 @@ body {
   height: 2em;
   max-height: 2em;
 
+  padding: .5em .5em;
+  line-height: 1em;
+
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   font-size: 16pt;
   color: white;
+}
+
+.App-header {
+  vertical-align: middle;
+  font-weight: bold;
+  text-align: left;
+}
+
+.App-footer {
+  font-size: 10pt;
+  font-weight: normal;
+  text-align: center;
 }
 
 .App-body {
@@ -78,17 +92,24 @@ body {
 
 .breweries li.selected,
 .breweries li:hover {
-  background: linear-gradient(#ea5, #d94);
-  border: 1px solid #d94;
-  border-top: 1px solid #ea5;
-  border-bottom: 1px solid #c83;
+  background: linear-gradient(#5ae, #4a9ada);
+  border: 1px solid #49d;
+  border-top: 1px solid #5ae;
+  border-bottom: 1px solid #38c;
 }
 
 .breweries li:active {
-  background: linear-gradient(#d94, #ea5);
-  border: 1px solid #d94;
-  border-top: 1px solid #c83;
-  border-bottom: 1px solid #ea5;
+  color: white !important;
+  background: linear-gradient(#4a9ada, #5ae);
+  border: 1px solid #49d;
+  border-top: 1px solid #38c;
+  border-bottom: 1px solid #5ae;
+}
+
+.breweries li.selected *,
+.breweries li:hover *,
+.breweries li:active * {
+  color: white;
 }
 
 .breweries li .name {

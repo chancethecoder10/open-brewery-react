@@ -144,7 +144,7 @@ class App extends React.Component {
 
     let breweries = this.state.breweries;
     let selected =  i !== this.state.selected ? i : null;
-    
+
     let mapCenter;
     if (selected !== null) {
       mapCenter = { lat: breweries[i].latitude, lng: breweries[i].longitude };
@@ -211,7 +211,7 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <header className="App-header"></header>
+        <header className="App-header">open-brewery-react</header>
         <div className="App-body">
           <div className="breweries">
             <div className="search">
@@ -235,7 +235,7 @@ class App extends React.Component {
             />
           </div>
         </div>
-        <footer className="App-footer"></footer>
+        <footer className="App-footer">Copyright &copy; 2019 M Matthew Hydock</footer>
       </div>
     );
   }
