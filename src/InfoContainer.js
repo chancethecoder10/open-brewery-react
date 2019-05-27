@@ -9,7 +9,6 @@ export default function InfoContainer(props) {
       <div className="info"></div>
     );
   }
-  console.log(props.brewery);
 
   let {
     name,
