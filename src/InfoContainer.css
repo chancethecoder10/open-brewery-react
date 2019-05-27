@@ -1,0 +1,64 @@
+.info {
+  background: linear-gradient(#eee, #e6e6e6);
+  border-right: 1px solid #ccc;
+
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: -50em;
+
+  display: flex;
+  flex-direction: column;
+
+  transition: left 0.5s;
+  overflow: hidden;
+}
+
+.info.selected {
+  left: 0;
+}
+
+.info table {
+  padding: 1em;
+}
+
+.info table td:first-child {
+  font-weight: bold;
+}
+
+.go-back {
+  cursor: pointer;
+  border-bottom: 1px solid #ccc;
+  height: 3em;
+  max-height: 3em;
+  display: flex;
+  flex-direction: row;
+}
+
+.go-back span {
+  height: 100%;
+  padding: 1em;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.go-back .back-arrow {
+  border-right: 1px solid #ccc;
+  width: 3em;
+  max-width: 3em;
+  text-align: center;
+}
+
+.go-back .back-arrow::after {
+  content: "\21E6";
+}
+
+.go-back .back-arrow:hover {
+  background: linear-gradient(#4a9ada, #5ae);
+  border: 1px solid #49d;
+  border-top: 1px solid #38c;
+  border-bottom: 1px solid #5ae;
+}

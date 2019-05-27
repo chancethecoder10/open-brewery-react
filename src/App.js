@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 import MapContainer from './MapContainer';
+import InfoContainer from './InfoContainer';
 import './App.css';
 
 import {US_STATES_OPTIONS, titleCaseToAbbrev} from './utils';
@@ -59,6 +60,7 @@ class App extends React.Component {
       city: "harrisburg",
       breweries: null,
       selected: null,
+      showInfo: false,
       mapCenter: {
         lat:  40.264441,  // PA state capitol for lulz
         lng: -76.883624
@@ -132,6 +134,14 @@ class App extends React.Component {
   }
 
   handleClickListItem(i) {
+    if (!this.state.showInfo && this.state.selected === i) {
+      this.setState({
+        ...this.state,
+        showInfo: true
+      });
+      return;
+    }
+
     let breweries = this.state.breweries;
     let selected =  i !== this.state.selected ? i : null;
     
@@ -145,14 +155,30 @@ class App extends React.Component {
     this.setState({
       ...this.state,
       selected: selected,
+      showInfo: true,
       mapCenter: mapCenter
     });
   }
 
+  handleHideInfo() {
+    this.setState({
+      ...this.state,
+      showInfo: false
+    });
+  }
+
   render() {
-    const center = this.state.mapCenter;
-    const selected = this.state.selected;
-    const breweries = this.state.breweries;
+    const {
+      mapCenter,
+      selected,
+      showInfo,
+      breweries,
+      state,
+      city
+    } = this.state;
+
+    const selectedBrewery = breweries && selected !== null ? breweries[selected] : null;
+
     const listItems = breweries ? breweries.map((brewery, index) => {
       return (
         <Brewery 
@@ -182,12 +208,16 @@ class App extends React.Component {
               <button onClick={() => this.handleClickSearch()}>Search</button>
             </div>
             {results}
+            <InfoContainer 
+              brewery={selectedBrewery}
+              visible={showInfo}
+              hide={() => this.handleHideInfo()}
+            />
           </div>
           <div className="map">
             <MapContainer
               breweries={breweries}
-              selected={selected}
-              center={center}
+              center={mapCenter}
             />
           </div>
         </div>
