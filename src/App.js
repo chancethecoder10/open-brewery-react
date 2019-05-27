@@ -167,6 +167,20 @@ class App extends React.Component {
     });
   }
 
+  handleChangeState(e) {
+    this.setState({
+      ...this.state,
+      state: e.target.value
+    })
+  }
+
+  handleChangeCity(e) {
+    this.setState({
+      ...this.state,
+      city: e.target.value
+    })
+  }
+
   render() {
     const {
       mapCenter,
@@ -201,10 +215,10 @@ class App extends React.Component {
         <div className="App-body">
           <div className="breweries">
             <div className="search">
-              <select defaultValue={this.state.state}>
+              <select value={state} onChange={(e) => this.handleChangeState(e)}>
                 {US_STATES_OPTIONS}
               </select>
-              <input placeholder="Search US Cities"></input>
+              <input placeholder="Search US Cities" value={city} onChange={(e) => this.handleChangeCity(e)}></input>
               <button onClick={() => this.handleClickSearch()}>Search</button>
             </div>
             {results}
