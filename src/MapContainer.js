@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { InfoWindow, Map, Marker, GoogleApiWrapper } from 'google-maps-react';
+import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 import './MapContainer.css';
 
 export class MapContainer extends Component {
@@ -16,7 +16,6 @@ export class MapContainer extends Component {
   }
 
   render() {
-    let selected = this.props.selected;
     let markers = this.renderMarkers(this.props.breweries);
     let center = this.props.center ? {
       lat: this.props.center.lat,
@@ -31,12 +30,6 @@ export class MapContainer extends Component {
         initialCenter={center}
       >
         {markers}
-        <InfoWindow 
-          marker={selected ? markers[selected] : null}
-          visible={selected !== null}
-        >
-          <div></div>
-        </InfoWindow>
       </Map>
     );
   }

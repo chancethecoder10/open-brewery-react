@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-import MapContainer from './MapContainer.js';
+import MapContainer from './MapContainer';
 import './App.css';
 
 import {US_STATES_OPTIONS, titleCaseToAbbrev} from './utils';
@@ -136,7 +136,7 @@ class App extends React.Component {
     let selected =  i !== this.state.selected ? i : null;
     
     let mapCenter;
-    if (selected) {
+    if (selected !== null) {
       mapCenter = { lat: breweries[i].latitude, lng: breweries[i].longitude };
     } else {
       mapCenter = averagedCenter(breweries);
